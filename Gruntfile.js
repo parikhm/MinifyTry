@@ -1,4 +1,4 @@
-module.exports = function(grunt){
+module.exports = function (grunt) {
 
     grunt.initConfig({
         uglify: {
@@ -36,16 +36,27 @@ module.exports = function(grunt){
                     'src/main/webapp/styles/styles.min.css': ['src/main/webapp/styles/libs/*.css', 'src/main/webapp/styles/styles.css']
                 }
             }
-        }
+        },
+        watch: {
+            js: {
+                files: ['**/**.js','!**/**.min.js'],
+                tasks: ['concat', 'uglify']
+            },
+            styles: {
+                files: ['**/**.css','!**/**.min.css'],
+                tasks: ['cssmin']
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('minifyall', ['concat', 'uglify', 'cssmin']);
-    grunt.registerTask('hello',function(){
-       console.log("Mother Nature !!!!");
+    grunt.registerTask('hello', function () {
+        console.log("Mother Nature !!!!");
     });
 
 };

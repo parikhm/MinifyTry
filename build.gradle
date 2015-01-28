@@ -16,8 +16,9 @@ buildscript {
 }
 
 war {
-    exclude('js/libs/**.js','js/app.js','js/script.js')
-    exclude('styles/libs/**.css','styles/styles.css')
+    exclude('js/libs','js/app.js','js/script.js')
+    exclude('styles/libs','styles/styles.css')
+    exclude('images/original')
 }
 
 repositories {

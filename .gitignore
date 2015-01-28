@@ -49,4 +49,5 @@ crashlytics-build.properties
 
 .gradle/
 build/
+node_modules/
 

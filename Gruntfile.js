@@ -47,14 +47,28 @@ module.exports = function (grunt) {
                 tasks: ['cssmin']
             }
         },
+        imagemin: {
+            dynamic: {
+                options:{
+                    optimizationLevel: 4
+                },
+                files: [{
+                    expand: true,                  // Enable dynamic expansion
+                    cwd: 'src/main/webapp/images/original',                   // Src matches are relative to this path
+                    src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+                    dest: 'src/main/webapp/images'                  // Destination path prefix
+                }]
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-    grunt.registerTask('minifyall', ['concat', 'uglify', 'cssmin']);
+    grunt.registerTask('minifyall', ['concat', 'uglify', 'cssmin','imagemin']);
     grunt.registerTask('hello', function () {
         console.log("Mother Nature !!!!");
     });

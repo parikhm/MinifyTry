@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'com.moowork.grunt'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-grunt-plugin:0.6'
+    }
+}
+
+war {
+    exclude('js/libs/**.js','js/app.js','js/script.js')
+    exclude('styles/libs/**.css','styles/styles.css')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+build.dependsOn(grunt_minifyall)
+jettyRun.dependsOn(grunt_minifyall)

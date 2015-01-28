@@ -1,0 +1,16 @@
+{
+  "name": "MinifyingTry",
+  "version": "0.0.0",
+  "description": "Just a test project to try minifying.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Meet Parikh",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt-contrib-uglify": "~0.7.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-concat": "~0.5.0"
+  }
+}

@@ -1,0 +1,2 @@
+# MinifyTry
+Scaffolding Web App
